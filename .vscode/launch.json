@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Cloud Run: Run/Debug Locally",
+            "type": "cloudcode.cloudrun",
+            "request": "launch",
+            "build": {
+                "buildpacks": {
+                    "path": "package.json",
+                    "builder": "gcr.io/buildpacks/builder:v1"
+                }
+            },
+            "image": "hosting-a-rest-api-with-a-cloud-firestore-backend",
+            "service": {
+                "name": "hosting-a-rest-api-with-a-cloud-firestore-backend",
+                "containerPort": 8080,
+                "resources": {
+                    "limits": {
+                        "cpu": 1,
+                        "memory": "256Mi"
+                    }
+                }
+            },
+            "target": {
+                "minikube": {}
+            },
+            "watch": true
+        }
+    ]
+}
